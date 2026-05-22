@@ -4,7 +4,7 @@ Proyecto **Food Store**, Evaluación 1 de Programación 3 - Universidad Tecnoló
 
 ## Enlace Video
 
-[Explicación del Código(https://youtu.be/luYw4OhW8BU)]
+https://youtu.be/luYw4OhW8BU
 
 ## ✍️ Descripción
 
