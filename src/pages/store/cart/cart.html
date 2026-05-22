@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <title>Carrito - Food Store</title>
+</head>
+<body>
+    <main class="main-container">
+
+        <header class="header">
+            <h1 class="header__title"><a href="#">FOOD STORE</a></h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../home/home.html" class="nav__link">← Volver al catálogo</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link nav__link--admin" id="logoutButton">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="separator">
+
+        <section class="cart-section">
+            <h2>Mi Carrito</h2>
+            <br>
+
+            <div id="mensaje-vacio" class="cart-empty">
+                <p class="mensaje-empty__carrito">Tu carrito está vacío.</p>
+                <a href="../home/home.html" class="nav__link--admin cart-empty__link">
+                    Ver productos
+                </a>
+            </div>
+
+            <div id="contenedor-carrito"></div>
+
+            <div id="total-container" class="cart-total">
+                <hr class="separator">
+                <h3>Total: <span id="total-precio">$0</span></h3>
+                <br>
+                <button class="btn-agregar" id="btn-vaciar">Vaciar carrito</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">© 2026 Food Store. Todos los derechos reservados.</p>
+        <p class="footer__text">Contacto: <a href="mailto:info@foodstore.com" class="footer__link">info@foodstore.com</a></p>
+    </footer>
+
+    <script type="module" src="./cart.ts"></script>
+</body>
+</html>

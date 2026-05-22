@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <title>Panel Admin - Food Store</title>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <h1 class="header__title">👤 Panel de Administración</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/src/pages/store/home/home.html" class="nav__link">Volver a la tienda</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link nav__link--admin" id="logoutButton">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="separator">
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-productos">
+            </tbody>
+        </table>
+
+        <br>
+
+        <details>
+            <summary>Agregar Producto</summary>
+            <form id="form-agregar" method="post">
+                <fieldset>
+                    <legend>Agregar Producto Rápido</legend>
+
+                    <label for="nombre">Nombre producto</label><br>
+                    <input type="text" id="nombre" placeholder="Ej: Hamburguesa con papas cheddar" required><br><br>
+
+                    <label for="precio">Precio total</label><br>
+                    <input type="number" id="precio" placeholder="Ej: 11000" required><br><br>
+
+                    <label for="categoria">Categoría</label><br>
+                    <select id="categoria">
+                        <option value="">Seleccionar</option>
+                        <option value="Hamburguesas">Hamburguesas</option>
+                        <option value="Pizzas">Pizzas</option>
+                        <option value="Postres">Postres</option>
+                        <option value="Bebidas">Bebidas</option>
+                    </select><br><br>
+
+                    <button type="submit">Agregar</button>
+                </fieldset>
+            </form>
+        </details>
+
+    </main>
+
+    <hr>
+
+    <footer class="footer">
+        <p class="footer__text">© 2026 Food Store. Todos los derechos reservados.</p>
+        <p class="footer__text">Contacto: <a href="mailto:info@foodstore.com" class="footer__link">info@foodstore.com</a></p>
+    </footer>
+
+    <script type="module" src="./home.ts"></script>
+</body>
+</html>

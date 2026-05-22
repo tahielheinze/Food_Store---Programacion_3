@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <title>Login - Food Store</title>
 </head>
-
 <body>
-    <h1> Login</h1>
+    <div class="login-container">
+        <main class="login">
+            <form class="login__form" id="form-login" method="post">
 
-    <form id="form">
+                <header class="login__header">
+                    <h1 class="login__title">FOOD STORE</h1>
+                    <p class="login__subtitle">Iniciar Sesión</p>
+                </header>
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="off" placeholder="example@example.com">
-        </div>
-        <div>
-            <label for="password">password</label>
-            <input type="password" id="password" name="password" autocomplete="off" placeholder="********">
-        </div>
-        <div>
-            <label for="rol">Rol</label>
-            <select name="rol" id="rol">
-                <option value="">Seleccione un rol</option>
-                <option value="client">Cliente</option>
-                <option value="admin">Admin</option>
-            </select>
-        </div>
+                <div class="login__field">
+                    <label class="login__label" for="email"><strong>Email:</strong></label>
+                    <input class="login__input" type="email" id="email" name="email" autocomplete="off" required placeholder="micorreo@ejemplo.com">
+                </div>
 
-        <button type="submit">Ingresar</button>
+                <div class="login__field">
+                    <label class="login__label" for="password"><strong>Contraseña:</strong></label>
+                    <input class="login__input" type="password" id="password" name="password" autocomplete="off" required placeholder="Mínimo 8 caracteres">
+                </div>
 
-    </form>
+                <button class="login__button" type="submit">INGRESAR</button>
+
+                <p class="login__register">
+                    ¿No tenés cuenta? 
+                    <a class="login__link" href="../registro/registro.html">Registrarse</a>
+                </p>
+
+            </form>
+        </main>
+    </div>
 
     <script type="module" src="./login.ts"></script>
 </body>
-
 </html>

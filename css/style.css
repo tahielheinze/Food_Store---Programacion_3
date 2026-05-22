@@ -1,0 +1,636 @@
+:root {
+    --color-primario: #ff6347;
+    --color-fondo: #f3f3f3;
+    --color-texto: #282B28;
+    --color-blanco: #ffff;
+    --color-borde: #ddd;
+    --color-categorias: #ff6347;
+    --color-textPrincipal: #333;
+}
+
+/* RESET DE ESTILOS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+    min-height: 100vh;
+}
+
+
+/*BORRAR ESTILO DE LAS LISTAS (color y subrayado)*/
+ul{
+    list-style-type: none;
+}
+ul li a{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/*ESTILOS PARA EL NAVBAR*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px; 
+    background-color: #f3f3f3;
+}
+/* El Título/Logo */
+.header__title {
+    font-size: 1.8rem;
+    color: var(--color-primario);
+}
+
+/* El bloque de navegación */
+.nav__list {
+    display: flex;
+    gap: 25px;
+}
+
+/* Estilo de los links */
+.nav__link {
+    color: var(--color-textPrincipal);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.nav__link:hover {
+    color: var(--color-primario);
+}
+
+.nav__link--admin {
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+
+.nav__link--admin:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.nav__link--panel-admin {
+    color: var(--color-categorias);
+    background-color: var(--color-blanco);
+    font-weight: bold;
+    border: 1px solid var(--color-categorias);
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav__link--panel-admin:hover {
+    background-color: var(--color-categorias);
+    color: var(--color-blanco);
+}
+
+/*ESTILOS PARA EL APARTADO CATEGORIAS*/
+.categorias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+}
+
+.categorias__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+/* La lista de categorías  */
+.categorias__list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categorias__list li a {
+    background-color: var(--color-blanco);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 2px 2px 0px var(--color-borde); 
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+    color: var(--color-textPrincipal);
+}
+
+/* Efecto de presionar el link */
+.categorias__list li a:hover {
+    transform: translate(-2px, -2px); 
+    box-shadow: 4px 4px 0px var(--color-categorias);
+    border-color: var(--color-categorias);
+}
+
+/* El formulario de búsqueda */
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form__input {
+    padding: 8px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-form__button {
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-form__button:hover {
+    background-color: var(--color-primario);
+}
+
+
+
+/* ESTILOS PARA LOS PRODUCTOS */
+/* Contenedor principal de Productos */
+#contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+/* Estilo de cada carta */
+.card-producto {
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-textPrincipal);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-producto:hover{
+    filter: brightness(0.96);
+
+}
+
+/* Ajuste de la imagen dentro de la carta */
+.card-producto img {
+    width: 100%;
+    height: 400px;
+    object-fit:fill;
+    border-bottom: 2px solid var(--color-textPrincipal);
+}
+
+/* Contenido de texto (Título, descripción y precio) */
+.card-producto h3 {
+    padding: 8px;
+    color: var(--color-primario);
+    font-size: 1.4rem;
+}
+
+.card-producto p {
+    padding: 0 15px 6px;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    line-height: 1.4;
+}
+
+/* Contenedor de botones */
+.card-producto .botones-container {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.card-producto button {
+    flex: 1;
+    padding: 10px;
+    margin: 3px 0;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-agregar {
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+}
+
+.btn-agregar:hover{
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.card-producto button:hover {
+    filter: brightness(1);
+}
+
+/* ESTILOS LOGIN */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+    padding: 20px;
+}
+
+/* La Tarjeta de Login */
+.login {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem 2rem; 
+    text-align: center;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login__header {
+    margin-bottom: 2rem;
+}
+
+.login__title {
+    color: var(--color-primario);
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.login__subtitle {
+    color: var(--color-textPrincipal);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* Campos de entrada */
+.login__field {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.login__label {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    color: var(--color-textPrincipal);
+}
+
+.login__input {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login__input:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.2);
+}
+
+/* Botón de Ingreso */
+.login__button {
+    height: 2.8rem;
+    width: 100%;
+    margin: 1rem 0 1.5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.login__button:hover {
+    background-color: var(--color-primario);
+}
+
+.login__button:active {
+    transform: scale(0.98);
+}
+
+/* Enlace de registro */
+.login__register {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+}
+
+.login__link {
+    color: var(--color-primario);
+    font-weight: bold;
+    transition: text-decoration 0.2s;
+}
+
+.login__link:hover {
+    text-decoration: underline;
+}
+
+
+/* --- ESTILOS PARA EL CARRITO --- */
+
+.cart-section {
+    padding: 20px;
+}
+
+.cart-empty {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.cart-empty__link {
+    padding: 10px 20px;
+    background: var(--color-textPrincipal);
+    color: var(--color-blanco);
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.mensaje-empty__carrito {
+    margin: 20px;
+}
+
+/* Fila de cada producto dentro del carrito */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* CONTENEDOR DE LAS ACCIONES (+ y -) */
+.cart-item__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* BOTONES (+ y -) */
+.btn-qty {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* BOTON ELIMINAR  */
+.btn-delete {
+    padding: 5px 10px;
+    cursor: pointer;
+    background: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 5px;
+}
+
+/* CONTENDOR PRECIO FINAL */
+.cart-total {
+    display: none;
+    text-align: right;
+    padding: 20px 0;
+}
+
+/* --- ESTILOS PARA PANEL ADMIN --- */
+/* Texto secundario con el ID y Stock del producto */
+.admin-product-info {
+    font-size: 0.85rem;
+    color: var(--color-textPrincipal);
+    margin-bottom: 5px;
+}
+
+/* Botón Editar dentro de las tarjetas */
+.btn-editar {
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-editar:hover {
+    background-color: #ff9f43; /* Un tono naranja intermedio para diferenciarlo visualmente */
+    color: var(--color-blanco);
+}
+
+/* El botón Eliminar (.btn-delete) ya aprovecha tu estilo base del carrito */
+.card-producto .btn-delete {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-producto .btn-delete:hover {
+    filter: brightness(0.85);
+}
+
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+th {
+    background-color: var(--color-fondo);
+    color: var(--color-textPrincipal);
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #fafafa;
+}
+
+/* Control del tamaño de la miniatura de la imagen en la tabla */
+.admin-table-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--color-borde);
+}
+
+/* Contenedor de acciones dentro de la celda */
+.admin-actions-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilo para los botones internos de la tabla */
+.admin-actions-container button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.admin-actions-container .btn-editar {
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+}
+
+.admin-actions-container .btn-editar:hover {
+    background-color: #ff9f43;
+}
+
+.admin-actions-container .btn-delete {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.admin-actions-container .btn-delete:hover {
+    filter: brightness(0.85);
+}
+
+details {
+    width: 90%;
+    margin: 20px auto 40px auto;
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* El título clickeable del desplegable */
+summary {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-textPrincipal);
+    cursor: pointer;
+    outline: none;
+    transition: color 0.2s;
+}
+
+summary:hover {
+    color: var(--color-primario);
+}
+
+/* El contenedor interno <fieldset> */
+fieldset {
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: var(--color-blanco);
+}
+
+/* El texto flotante del borde <legend> */
+legend {
+    font-weight: bold;
+    color: var(--color-primario);
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+/* Etiquetas del formulario */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-textPrincipal);
+    font-size: 0.95rem;
+}
+
+/* Campos de entrada (inputs y selects) */
+#form-agregar input[type="text"],
+#form-agregar input[type="number"],
+#form-agregar select {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    background-color: var(--color-blanco);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto de foco al hacer click en los inputs */
+#form-agregar input:focus,
+#form-agregar select:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.2);
+}
+
+/* Botón de enviar del formulario */
+#form-agregar button[type="submit"] {
+    width: 100%;
+    height: 2.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--color-textPrincipal);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+#form-agregar button[type="submit"]:hover {
+    background-color: var(--color-primario);
+}
+
+#form-agregar button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+
+/* ESTILO FOOTER*/
+.footer {
+    text-align: center;
+}

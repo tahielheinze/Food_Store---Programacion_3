@@ -1,30 +1,46 @@
 import type { IUser } from "../../../types/IUser";
-import type { Rol } from "../../../types/Rol";
+import { saveUser } from "../../../utils/localStorage";
 import { navigate } from "../../../utils/navigate";
 
-const form = document.getElementById("form") as HTMLFormElement;
+const ADMIN_DEFAULT: IUser = {
+    email: "admin@foodstore.com",
+    password: "admin1234",
+    role: "admin",
+    loggedIn: true,
+};
+
+const form = document.getElementById("form-login") as HTMLFormElement;
 const inputEmail = document.getElementById("email") as HTMLInputElement;
-//const inputPassword = document.getElementById("password") as HTMLInputElement;
-const selectRol = document.getElementById("rol") as HTMLSelectElement;
+const inputPassword = document.getElementById("password") as HTMLInputElement;
 
 form.addEventListener("submit", (e: SubmitEvent) => {
-  e.preventDefault();
-  const valueEmail = inputEmail.value;
-  //const valuePassword = inputPassword.value;
-  const valueRol = selectRol.value as Rol;
+    e.preventDefault();
 
-  if (valueRol === "admin") {
-    navigate("/src/pages/admin/home/home.html");
-  } else if (valueRol === "client") {
-    navigate("/src/pages/client/home/home.html");
-  }
+    const email = inputEmail.value.trim();
+    const password = inputPassword.value.trim();
 
-  const user: IUser = {
-    email: valueEmail,
-    role: valueRol,
-    loggedIn: true,
-  };
+    if (email === ADMIN_DEFAULT.email && password === ADMIN_DEFAULT.password) {
+        saveUser(ADMIN_DEFAULT);
+        navigate("/src/pages/admin/home/home.html");
+        return;
+    }
 
-  const parseUser = JSON.stringify(user);
-  localStorage.setItem("userData", parseUser);
+    const usersGuardados = localStorage.getItem("users");
+    const users: IUser[] = usersGuardados ? JSON.parse(usersGuardados) : [];
+
+    const usuarioEncontrado = users.find(
+        (u) => u.email === email && u.password === password
+    );
+
+    if (!usuarioEncontrado) {
+        alert("Email o contraseña incorrectos.");
+        return;
+    }
+
+    const usuarioLogueado: IUser = {
+        ...usuarioEncontrado,
+        loggedIn: true,
+    };
+    saveUser(usuarioLogueado);
+    navigate("/src/pages/store/home/home.html");
 });

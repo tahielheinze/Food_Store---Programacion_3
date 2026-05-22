@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../css/style.css">
+    <title>Food Store - Catálogo</title>
+</head>
+<body>
+    <main class="main-container">
+
+        <header class="header">
+            <h1 class="header__title"><a href="#">FOOD STORE</a></h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li id="admin-nav-item" class="nav__item"></li>
+                    <li class="nav__item"><a href="#" class="nav__link">INICIO</a></li>
+                    <li class="nav__item"><a href="../cart/cart.html" class="nav__link">CARRITO (<span id="carrito-count">0</span>)</a>                    </li>
+                    <li class="nav__item"><a href="#" class="nav__link nav__link--admin" id="logoutButton">Cerrar Sesión</a> </li>
+                </ul>
+            </nav>
+        </header>
+
+        <hr class="separator">
+
+        <aside class="categorias">
+            <h2 class="categorias__title">CATEGORÍAS</h2>
+            <div class="categorias__row">
+                <ul id="lista-categorias" class="categorias__list"></ul>
+                <form class="search-form" id="form-busqueda" method="post">
+                    <input type="search" id="input-busqueda" class="search-form__input" placeholder="Ej: Pizza muzzarella">
+                    <button type="submit" class="search-form__button">Buscar</button>
+                </form>
+            </div>
+        </aside>
+
+        <hr class="separator">
+
+        <div id="mensaje-vacio" class="products-empty">
+            <p>No se encontraron productos.</p>
+        </div>
+
+        <article class="products" id="contenedor-productos"></article>
+
+        <hr class="separator">
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">© 2026 Food Store. Todos los derechos reservados.</p>
+        <p class="footer__text">Contacto: <a href="mailto:info@foodstore.com" class="footer__link">info@foodstore.com</a></p>
+    </footer>
+
+    <script type="module" src="./home.ts"></script>
+</body>
+</html>
